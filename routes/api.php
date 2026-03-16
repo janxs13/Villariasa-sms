@@ -1,19 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\ScholarshipController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/scholarships', [ScholarshipController::class, 'index']);
+Route::post('/scholarships', [ScholarshipController::class, 'store']);
+Route::put('/scholarships/{id}', [ScholarshipController::class, 'update']);
+Route::delete('/scholarships/{id}', [ScholarshipController::class, 'destroy']);
